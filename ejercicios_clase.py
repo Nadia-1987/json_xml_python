@@ -10,6 +10,8 @@ Descripcion:
 Programa creado para poner a prueba los conocimientos
 adquiridos durante la clase
 '''
+import json
+import xml.etree.ElementTree as ET
 
 __author__ = "Inove Coding School"
 __email__ = "alumnos@inove.com.ar"
@@ -31,9 +33,24 @@ def ej1():
     # Que su lista de prendas dentro del JSON tenga al menos 2 prendas
 
     # json_data = {...}
+    json_data = {
+               "nombre": "Nadia",
+               "apellido": "Escalzo",
+               "dni": 32876689,
+               "prendas": [
+                        {
+                        "zapatillas": 2,
+                        "remeras": 4
+                        }
+                        ]
+                }
 
     # Una vez que finalice el JSON realice un "dump" para almacenarlo en
     # un archivo que usted defina
+
+    with open('mi_json_data.json', 'w') as jsonfile:
+        data = [json_data]
+        json.dump(data, jsonfile, indent=4)
 
     # Observe el archivo y verifique que se almaceno lo deseado
     pass
@@ -49,8 +66,14 @@ def ej2():
     # el método "dumps" y finalmente imprimir en pantalla el resultado
     # Recuerde utilizar indent=4 para poder observar mejor el resultado
     # en pantalla y comparelo contra el JSON que generó en el ej1
-    pass
+    
+    with open('mi_json_data.json', 'r') as jsonfile:
+        json_data = json.load(jsonfile)
 
+    print('Mostrar el contenido del archivo mi_json')
+    print(json.dumps(json_data, indent=4))
+    
+    pass
 
 def ej3():
     # Ejercicio de XML
@@ -59,8 +82,11 @@ def ej3():
     # lo más parecida al ejercicio 1.
     # El objectivo es que armen un archivo XML al menos
     # una vez para que entiendan como funciona.
-    pass
+    
 
+
+
+    pass
 
 def ej4():
     # XML Parser
@@ -72,8 +98,18 @@ def ej4():
     # Python lanza algún error, es porque hay problemas en el archivo.
     # Preseten atención al número de fila y al mensaje de error
     # para entender que puede estar mal en el archivo.
-    pass
+    
 
+    tree = ET.parse('mis_datos.xml')
+    root = tree.getroot()
+
+    print('Recorrer el archivo XML')
+    for child in root:
+        print('tag:', child.tag, 'attr:', child.attrib, 'text:', child.text)
+        for child2 in child:
+            print('tag:', child2.tag, 'attr:', child2.attrib, 'text:', child2.text)
+
+    pass
 
 def ej5():
     # Ejercicio de consumo de datos por API
@@ -106,8 +142,8 @@ def ej5():
 
 if __name__ == '__main__':
     print("Bienvenidos a otra clase de Inove con Python")
-    ej1()
+    # ej1()
     # ej2()
     # ej3()
-    # ej4()
+    ej4()
     # ej5()
