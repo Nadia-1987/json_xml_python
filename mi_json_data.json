@@ -1,0 +1,13 @@
+[
+    {
+        "nombre": "Nadia",
+        "apellido": "Escalzo",
+        "dni": 32876689,
+        "prendas": [
+            {
+                "zapatillas": 2,
+                "remeras": 4
+            }
+        ]
+    }
+]

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<data>
+    <nombre>Nadia</nombre>
+    <apellido>Escalzo</apellido>
+    <dni>32876689</dni>
+    <prendas name="remeras">
+        <cantidad>8</cantidad>        
+    </prendas>
+    <prendas name="zapatillas">
+        <cantidad>9</cantidad>        
+    </prendas>
+</data>
