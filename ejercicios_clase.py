@@ -11,6 +11,7 @@ Programa creado para poner a prueba los conocimientos
 adquiridos durante la clase
 '''
 import json
+import requests
 import xml.etree.ElementTree as ET
 
 __author__ = "Inove Coding School"
@@ -39,8 +40,11 @@ def ej1():
                "dni": 32876689,
                "prendas": [
                         {
-                        "zapatillas": 2,
-                        "remeras": 4
+                        "prenda": "remeras",
+                        "cantidad": 2},
+                        {
+                        "prenda": "jean",
+                        "cantidad": 4                        
                         }
                         ]
                 }
@@ -70,7 +74,7 @@ def ej2():
     with open('mi_json_data.json', 'r') as jsonfile:
         json_data = json.load(jsonfile)
 
-    print('Mostrar el contenido del archivo mi_json')
+    print('Mostrar el contenido del archivo mi_json_data')
     print(json.dumps(json_data, indent=4))
     
     pass
@@ -82,9 +86,9 @@ def ej3():
     # lo más parecida al ejercicio 1.
     # El objectivo es que armen un archivo XML al menos
     # una vez para que entiendan como funciona.
+
     
-
-
+    
 
     pass
 
@@ -115,6 +119,9 @@ def ej5():
     # Ejercicio de consumo de datos por API
     url = "https://jsonplaceholder.typicode.com/todos"
 
+    response = requests.get(url)
+    dataset = response.json()
+
     # El primer paso es que copien esa URL en su explorador web
     # y analicen los datos en general.
     # Observando la URL se puede ver que en total hay 200 entradas,
@@ -132,6 +139,52 @@ def ej5():
     # del JSON recolectado. Al finalizar el bucle deberá tener la data
     # de los 10 usuarios con cuantos títulos completó cada uno.
 
+    usuario_1 = 0
+    usuario_2 = 0
+    usuario_3 = 0
+    usuario_4 = 0
+    usuario_5 = 0
+    usuario_6 = 0
+    usuario_7 = 0
+    usuario_8 = 0
+    usuario_9 = 0
+    usuario_10 = 0
+
+    for user in dataset:
+        if user['completed'] == True:
+            if user ["userId"] == 1:
+                usuario_1 += 1  
+            elif user ["userId"] == 2:
+                usuario_2 += 1 
+            elif user ["userId"] == 3:
+                usuario_3 += 1 
+            elif user ["userId"] == 4:
+                usuario_4 += 1
+            elif user ["userId"] == 5:
+                usuario_5 += 1 
+            elif user ["userId"] == 6:
+                usuario_6 += 1    
+            elif user ["userId"] == 7:
+                usuario_7 += 1
+            elif user ["userId"] == 8:
+                usuario_8 += 1
+            elif user ["userId"] == 9:
+                usuario_9 += 1
+            elif user ["userId"] == 10:
+                usuario_10 += 1
+    
+    print('la cantidad de titulos del usuario 1 son:', usuario_1)
+    print('la cantidad de titulos del usuario 2 son:', usuario_2)
+    print('la cantidad de titulos del usuario 3 son:', usuario_3)
+    print('la cantidad de titulos del usuario 4 son:', usuario_4)
+    print('la cantidad de titulos del usuario 5 son:', usuario_5)
+    print('la cantidad de titulos del usuario 6 son:', usuario_6)        
+    print('la cantidad de titulos del usuario 7 son:', usuario_7)
+    print('la cantidad de titulos del usuario 8 son:', usuario_8)
+    print('la cantidad de titulos del usuario 9 son:', usuario_9)
+    print('la cantidad de titulos del usuario 10 son:', usuario_10)
+        
+
     # Debe poder graficar dicha información en un gráfico de torta.
     # En caso de no poder hacer el gráfico comience por usar print
     # para imprimir cuantos títulos completó cada usuario
@@ -142,8 +195,8 @@ def ej5():
 
 if __name__ == '__main__':
     print("Bienvenidos a otra clase de Inove con Python")
-    # ej1()
-    # ej2()
+    #ej1()
+    #ej2()
     # ej3()
-    ej4()
-    # ej5()
+    #ej4()
+    ej5()

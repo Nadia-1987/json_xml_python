@@ -5,8 +5,12 @@
         "dni": 32876689,
         "prendas": [
             {
-                "zapatillas": 2,
-                "remeras": 4
+                "prenda": "remeras",
+                "cantidad": 2
+            },
+            {
+                "prenda": "jean",
+                "cantidad": 4
             }
         ]
     }
